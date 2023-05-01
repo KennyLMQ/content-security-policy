@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- self -->
     <!-- <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go='; style-src 'self';"
     /> -->
+    <!-- hashes -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go=' 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='; style-src 'self' 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8=' 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=';"
+    /> -->
+    <!-- hashes and unsafe hashes -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go=' 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='; style-src 'self' 'unsafe-hashes' 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8=' 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=';"
+    /> -->
+    <!-- nonce and unsafe hashes -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go=' 'nonce-63134608e61dfe339dcf4f3aa9e1346c' 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='; style-src 'self' 'unsafe-hashes' 'nonce-63134608e61dfe339dcf4f3aa9e1346c' 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=';"
+    /> -->
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content-Security-Policy</title>
 
     <link rel="stylesheet" href="css/main.css" />
-    <!-- style-src unsafe-inline 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8='' -->
-    <style>
+    <!-- style-src unsafe-inline 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8=' -->
+    <style nonce="63134608e61dfe339dcf4f3aa9e1346c">
       body {
         background-color: grey;
       }
@@ -40,7 +57,7 @@
     </p>
 
     <!-- script-src unsafe-inline 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' -->
-    <script>
+    <script nonce="63134608e61dfe339dcf4f3aa9e1346c">
       const element = document.createElement("div");
       element.innerHTML = "script-src unsafe-inline";
       document.body.append(element);
