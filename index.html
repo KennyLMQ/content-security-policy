@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go='; style-src 'self';"
+    /> -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lite-server template</title>
+    <title>Content-Security-Policy</title>
 
     <link rel="stylesheet" href="css/main.css" />
+    <!-- style-src unsafe-inline 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8='' -->
+    <style>
+      body {
+        background-color: grey;
+      }
+    </style>
   </head>
   <body>
-    <h1>lite-server template</h1>
+    <h1>Content-Security-Policy</h1>
+
+    <!-- style-src unsafe-inline unsafe-hashes 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=' -->
+    <p style="color: red">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex officiis
+      voluptates quam soluta placeat non saepe repudiandae ut a fugiat
+      praesentium qui corporis amet expedita, ab eaque, nemo eius quisquam.
+    </p>
+
+    <!--
+      script-src unsafe-inline unsafe-hashes 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='
+      won't be blocked until executed
+    -->
+    <p onclick="alert('script-src unsafe-inline unsafe-hashes')">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum unde
+      iusto, amet quaerat earum impedit reprehenderit tenetur dolor at iste
+      neque, ex molestiae! Est quis voluptas, animi inventore dignissimos
+      deserunt.
+    </p>
+
+    <!-- script-src unsafe-inline 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' -->
+    <script>
+      const element = document.createElement("div");
+      element.innerHTML = "script-src unsafe-inline";
+      document.body.append(element);
+    </script>
   </body>
 </html>
