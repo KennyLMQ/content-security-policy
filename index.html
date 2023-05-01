@@ -12,11 +12,14 @@
       content="default-src 'self'; script-src 'self' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go=' 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='; style-src 'self' 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8=' 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=';"
     /> -->
     <!-- hashes and unsafe hashes -->
-    <!-- <meta
+    <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go=' 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='; style-src 'self' 'unsafe-hashes' 'sha256-ICbQdq+JcX05PQ/kBAGhLnrK5uzkOVIkZOAkuFIAvD8=' 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=';"
-    /> -->
-    <!-- nonce and unsafe hashes -->
+    />
+    <!-- 
+      nonce and unsafe hashes
+      nonce should be a secure random string and should not be reused
+    -->
     <!-- <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-iDOCX/udRf0JAXf+erywsbilV3KHujK1huYE5IpO4Go=' 'nonce-63134608e61dfe339dcf4f3aa9e1346c' 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='; style-src 'self' 'unsafe-hashes' 'nonce-63134608e61dfe339dcf4f3aa9e1346c' 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=';"
@@ -36,25 +39,22 @@
     </style>
   </head>
   <body>
-    <h1>Content-Security-Policy</h1>
+    <h1>
+      <a href="https://content-security-policy.com/" target="_blank"
+        >Content-Security-Policy</a
+      >
+    </h1>
 
     <!-- style-src unsafe-inline unsafe-hashes 'sha256-NerDAUWfwD31YdZHveMrq0GLjsNFMwxLpZl0dPUeCcw=' -->
-    <p style="color: red">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex officiis
-      voluptates quam soluta placeat non saepe repudiandae ut a fugiat
-      praesentium qui corporis amet expedita, ab eaque, nemo eius quisquam.
-    </p>
+    <h2 style="color: red">This is supposed to be red.</h2>
 
     <!--
       script-src unsafe-inline unsafe-hashes 'sha256-lOPnsFV6VrWXkfKLdi46n4/opYCAo2kxsBovGfP5Oj8='
-      won't be blocked until executed
+      Error messages will only appear in developer tools upon attempted execution
     -->
-    <p onclick="alert('script-src unsafe-inline unsafe-hashes')">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum unde
-      iusto, amet quaerat earum impedit reprehenderit tenetur dolor at iste
-      neque, ex molestiae! Est quis voluptas, animi inventore dignissimos
-      deserunt.
-    </p>
+    <button onclick="alert('script-src unsafe-inline unsafe-hashes')">
+      Click Me.
+    </button>
 
     <!-- script-src unsafe-inline 'sha256-g09IB8P/g0u9obZuMtUXafnd7PMm6po8zG7CeEVBDQU=' -->
     <script nonce="63134608e61dfe339dcf4f3aa9e1346c">
